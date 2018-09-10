@@ -260,7 +260,7 @@ module.exports = Field.create({
 				target="__blank"
 				style={{ float: 'left', marginRight: '1em' }}
 			>
-				<img src={this.getImageSource()} style={{ height: 90, minWidth: 90 }} />
+				<img src={this.getImageSource()} style={{ height: 90 }} />
 				{renderIcons()}
 			</ImageThumbnail>
 		);
@@ -302,7 +302,7 @@ module.exports = Field.create({
 			prefix += `${listPath}/${path}`;
 		}
 
-		$.get('/keystone/api/cloudinary/autocomplete', {
+		$.get(`${Keystone.adminPath}/api/cloudinary/autocomplete`, {
 			dataType: 'json',
 			data: { q: input },
 			prefix: prefix,
